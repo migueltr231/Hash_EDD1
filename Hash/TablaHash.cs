@@ -59,7 +59,7 @@ namespace Hash
                 else
                     numIntentos++;
             }
-            while (tabla[dirRegistro].Estado == Estado.ocupado); // Se ejecutara mientras la celda no este ocupada
+            while (tabla[dirRegistro].Estado == Estado.ocupado); // Se ejecutara mientras la celda este ocupada
         }
         public void Mostrar()
         {
