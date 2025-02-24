@@ -2,7 +2,7 @@
 
 namespace Hash
 {
-    class TablaHash
+    public class TablaHash
     {
         private static Celda[] tabla;
         private static int tamanio;
@@ -35,7 +35,7 @@ namespace Hash
             string strLlave = Math.Pow(llave, 2).ToString();
 
             // Se obtienen los 3 numeros siguientes a el centro de el cuadrado
-            int indice= int.Parse(strLlave.Substring(strLlave.Length / 2, 3));
+            int indice= int.Parse(strLlave.Substring(strLlave.Length / 2, 3)) - 1;
 
             // Resolucion de colisiones: Direccionamiento abierto
             return (indice + intento) % tamanio;
@@ -54,11 +54,12 @@ namespace Hash
                     tabla[dirRegistro].Estado = Estado.ocupado;
                     tabla[dirRegistro].Valor = valor;
                     tabla[dirRegistro].Llave = llave;
+                    break;
                 }
                 else
                     numIntentos++;
             }
-            while (tabla[dirRegistro].Estado != Estado.ocupado); // Se ejecutara mientras la celda no este ocupada
+            while (tabla[dirRegistro].Estado == Estado.ocupado); // Se ejecutara mientras la celda no este ocupada
         }
         public void Mostrar()
         {
