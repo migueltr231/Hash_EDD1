@@ -17,14 +17,13 @@ namespace Hash
             
             // Se obtienen el o los elementos correspondientes a esa clave
             while (tabla[dirRegistro].Estado == Estado.ocupado)
-            {
-                // Se obtiene la direccion por cada iteracion
-                dirRegistro = FuncionHash(llave, numIntentos); 
-
+            {             
                 // Anexo de cada nuevo elemento a el retorno de la funcion
                 valor = valor + $"\nElemento {dirRegistro} = [{tabla[dirRegistro].Llave}," +
                     $"{tabla[dirRegistro].Valor}]";
                 numIntentos++;
+                // Se obtiene la direccion por cada iteracion
+                dirRegistro = FuncionHash(llave, numIntentos);
             }            
             return valor;
         }
